@@ -1,0 +1,44 @@
+spring:
+#    profiles.active: dev
+    application.name: cluser
+    jackson.serialization.indent_output: true
+    jackson.property-naming-strategy: SNAKE_CASE
+    mvc.async.requestTimeout: 10000
+security:
+  filter-dispatcher-types: REQUEST
+endpoints:
+  cors:
+    allowed-origins: "*"
+    allowed-methods: "*"
+server:
+    context-path: /cluser
+management:
+    contextPath: /management
+    add-application-context-header: false
+    info:
+      build:
+        enabled: false
+      env:
+        enabled: true
+      git:
+        mode: full
+        enabled: true
+      
+BUILD_NUMBER: dev
+
+info:
+    service_name: ${spring.application.name}
+    version: 1.0.0
+    build_number: ${BUILD_NUMBER}
+    api_versions: V_1.0
+    
+logging:
+  path: ${user.home}/logs/cluser/
+
+container:
+    threadPool:
+        maxThreads: 200
+        minThreads: 20
+        connectTimeout: 3000
+        idleTimeout: 1000
+        waitThread: 100
