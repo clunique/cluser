@@ -21,14 +21,14 @@
       <property name="forceBigDecimals" value="false" />
     </javaTypeResolver>
 
-    <javaModelGenerator targetPackage="com.cluser.dao.model.generated" targetProject="../src/main/java">
+    <javaModelGenerator targetPackage="com.cluser.dao.model" targetProject="../src/main/java">
       <property name="trimStrings" value="true" />
     </javaModelGenerator>
 
-    <sqlMapGenerator targetPackage="com.cluser.dao.xml.generated"  targetProject="../src/main/java">
+    <sqlMapGenerator targetPackage="com.cluser.dao.xml"  targetProject="../src/main/java">
     </sqlMapGenerator>
 
-    <javaClientGenerator type="MIXEDMAPPER" targetPackage="com.cluser.dao.mapper.generated"  targetProject="../src/main/java">
+    <javaClientGenerator type="MIXEDMAPPER" targetPackage="com.cluser.dao.mapper"  targetProject="../src/main/java">
     </javaClientGenerator>
 
     <table tableName="t_user" domainObjectName="TUser" >

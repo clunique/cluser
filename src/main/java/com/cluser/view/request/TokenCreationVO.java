@@ -1,12 +1,11 @@
 package com.cluser.view.request;
 
-import com.cluser.view.anotation.RequestToken;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  * Created by Lou Chen Xi on 1/9/2016.
  */
-@RequestToken
+// @RequestToken
 public class TokenCreationVO {
 
     @JsonProperty("op_type")

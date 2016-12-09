@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.*;
 
 @Configuration
-@MapperScan(basePackages="com.cluser.dao.mapper.extended")
+@MapperScan(basePackages="com.cluser.dao.mapper")
 public class DaoConfig {
     
 }

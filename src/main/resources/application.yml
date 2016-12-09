@@ -48,3 +48,5 @@ container:
         connectTimeout: 3000
         idleTimeout: 1000
         waitThread: 100
+mybatis:
+    config-location: "classpath:mybatis-config.xml"
