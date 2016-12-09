@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nationsky.edp.usercenter.dao.mapper.extended.UserOrgMapper">
+  	<select id="selectUsersInOrg" resultType="long">
+  	select user_id from t_user_org WHERE org_id = #{orgId} and user_id in
+  		<foreach item="item" index="index" collection="userIds"
+      		open="(" separator="," close=")">
+        		#{item}
+  		</foreach>
+	</select>
+	
+	<delete id="removeList">
+    	delete from t_user_org WHERE org_id = #{orgId} and user_id in
+		<foreach item="item" index="index" collection="userIds" open="(" separator="," close=")">
+			#{item}
+		</foreach>
+  	</delete>
+  	
+  	<insert id="insertList">
+		insert into t_user_org (user_id, org_id) VALUES 
+		<foreach collection="userOrgs" item="element" index="index" separator=",">  
+    		( #{element.userId}, #{element.orgId} )
+		</foreach>  
+	</insert> 
+</mapper>

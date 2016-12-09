@@ -4,6 +4,12 @@ spring:
     jackson.serialization.indent_output: true
     jackson.property-naming-strategy: SNAKE_CASE
     mvc.async.requestTimeout: 10000
+    datasource:
+            url: "jdbc:mariadb://localhost:3306/uc"
+            username: "root"
+            password: ""
+            driverClassName: "org.mariadb.jdbc.Driver"
+            validation-query: "SELECT 1"
 security:
   filter-dispatcher-types: REQUEST
 endpoints:
