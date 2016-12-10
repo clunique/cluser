@@ -13,6 +13,7 @@ import com.cluser.exception.TokenException;
 import com.cluser.exception.TransactionErrorType;
 import com.cluser.exception.UserCenterException;
 import com.cluser.exception.UserException;
+import com.cluser.service.TokenService;
 import com.cluser.service.UserService;
 import com.cluser.view.request.TokenCreationVO;
 import com.cluser.view.response.TokenInfoVO;
@@ -23,6 +24,9 @@ public class TokenBusiness {
 	
 	@Resource
 	UserService userService;
+	
+	@Resource
+	TokenService tokenService;
 	
 	public TokenInfoVO createToken(TokenCreationVO token) throws UserCenterException {
         TokenInfoVO returnTokenInfoVO = new TokenInfoVO();
@@ -36,7 +40,8 @@ public class TokenBusiness {
             	new UserException(HttpStatus.NOT_FOUND, TransactionErrorType.USER_NAME_PASSWORD_INCONSISTENT);
             }
             if(tUser.getPassword().equals(pwd)) {
-            	returnTokenInfoVO.setAccessTokenValue("aaabbbccc");
+            	String accessToken = tokenService.genToken(tUser);
+            	returnTokenInfoVO.setAccessToken(accessToken);
             }else {
             	logger.error("createToken: password of username {} is NOT correct.", username);
             	new UserException(HttpStatus.NOT_FOUND, TransactionErrorType.USER_NAME_PASSWORD_INCONSISTENT);
