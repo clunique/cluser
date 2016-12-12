@@ -20,6 +20,9 @@
         <mapper resource="com/cluser/dao/xml/TOrgTreePathMapper.xml"/>
         <mapper resource="com/cluser/dao/xml/TUserOrgMapper.xml"/>
         <mapper resource="com/cluser/dao/xml/TUserSchemaMapper.xml"/>
+        <mapper resource="com/cluser/dao/xml/TRoleMapper.xml"/>
+        <mapper resource="com/cluser/dao/xml/TPermissionMapper.xml"/>
+        <mapper resource="com/cluser/dao/xml/TRolePermissionMapper.xml"/>
         
     </mappers>
 </configuration>

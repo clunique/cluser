@@ -53,5 +53,17 @@
 		<columnOverride column="mandatory" javaType="boolean"/>
 		<columnOverride column="searchable" javaType="boolean"/>
 	</table>
+	
+	<table tableName="t_role" domainObjectName="TRole" >
+		<generatedKey column="id" sqlStatement="MySql" identity="true"/>
+	</table>
+	
+	<table tableName="t_permission" domainObjectName="TPermission" >
+		<generatedKey column="id" sqlStatement="MySql" identity="true"/>
+	</table>
+	
+	<table tableName="t_role_permission" domainObjectName="TRolePermission" >
+		<generatedKey column="id" sqlStatement="MySql" identity="true"/>
+	</table>
   </context>
 </generatorConfiguration>
