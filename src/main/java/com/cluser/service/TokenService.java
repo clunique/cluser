@@ -30,7 +30,7 @@ public class TokenService {
 
         Map<String, Object> privateClaims = new HashMap<String, Object>();
         privateClaims.put(JwtClaim.SUB, tUser.getId());
-        privateClaims.put(JwtClaim.USERNAME, tUser.getUserName());
+        privateClaims.put(JwtClaim.USERNAME, tUser.getUsername());
 
         String privateKey = "1234567890";
         final String token = Jwts.builder()

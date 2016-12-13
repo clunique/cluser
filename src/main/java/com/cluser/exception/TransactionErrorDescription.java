@@ -69,11 +69,11 @@ public interface TransactionErrorDescription {
     // Error about user data schema; 10104xx
     String USER_SCHEMA_NOT_FOUND_DESC = "User Schema Not Found";
     int USER_SCHEMA_NOT_FOUND_CODE = 1010401;
-    String USER_SCHEMA_ATTR_EXIST_DESC = "Attribute is already exist";
+    String USER_SCHEMA_ATTR_EXIST_DESC = "Attribute already exists";
     int USER_SCHEMA_ATTR_EXIST_CODE = 1010402;
     String USER_SCHEMA_OBJECT_CALSS_NOT_FOUND_DESC = "User schema object class is not exist";
     int USER_SCHEMA_OBJECT_CALSS_NOT_FOUND_CODE = 1010403;
-    String USER_SCHEMA_ATTR_NOT_FOUND_DESC = "attribute is not exist";
+    String USER_SCHEMA_ATTR_NOT_FOUND_DESC = "attribute does not exist";
     int USER_SCHEMA_ATTR_NOT_FOUND_CODE = 1010404;
     String USER_SCHEMA_ATTR_DATA_TYPE_INVALID_DESC = "attribute data type is not support";
     int USER_SCHEMA_ATTR_DATA_TYPE_INVALID_CODE = 1010405;

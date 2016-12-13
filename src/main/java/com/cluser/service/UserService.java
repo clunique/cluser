@@ -23,7 +23,7 @@ public class UserService {
 		TUser tUser = null;
 		TUserExample example = new TUserExample();
 		TUserExample.Criteria cri = example.createCriteria();
-		cri.andUserNameEqualTo(userName);
+		cri.andUsernameEqualTo(userName);
 		List<TUser> listUser = userMapper.selectByExample(example);
 		if(listUser.size() > 0) {
 			tUser = listUser.get(0);
