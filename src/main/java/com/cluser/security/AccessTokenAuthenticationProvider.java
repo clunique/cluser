@@ -59,7 +59,7 @@ public class AccessTokenAuthenticationProvider extends AbstractUserDetailsAuthen
 
             String commaAuthZInfo = Strings.replace(authZInfo, "\n", ",");
             List<GrantedAuthority> authorityList = AuthorityUtils.commaSeparatedStringToAuthorityList(commaAuthZInfo);
-            User user = new User(principle+"$" +subject, principle, authorityList);
+            User user = new User(principle + "$" + subject, principle, authorityList);
             logger.debug("user {} sub {} authentication success", principle, subject);
             return user;
         } else {

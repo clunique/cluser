@@ -1,5 +1,6 @@
 package com.cluser.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -11,6 +12,8 @@ import org.springframework.stereotype.Service;
 import com.cluser.dao.mapper.TUserMapper;
 import com.cluser.dao.model.TUser;
 import com.cluser.dao.model.TUserExample;
+import com.cluser.view.request.SearchUserConditionVO;
+import com.cluser.view.response.UserInfoOutVO;
 
 @Service("userService")
 public class UserService {
@@ -29,5 +32,10 @@ public class UserService {
 			tUser = listUser.get(0);
 		}
 		return tUser;
+	}
+	
+	public List<UserInfoOutVO> searchUser(SearchUserConditionVO condi) {
+		List<UserInfoOutVO> out = new ArrayList<UserInfoOutVO>();
+		return out;
 	}
 }

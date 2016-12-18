@@ -31,6 +31,9 @@ public class TokenService {
         Map<String, Object> privateClaims = new HashMap<String, Object>();
         privateClaims.put(JwtClaim.SUB, tUser.getId());
         privateClaims.put(JwtClaim.USERNAME, tUser.getUsername());
+        privateClaims.put(JwtClaim.SCOPE, "admin");
+        privateClaims.put(JwtClaim.EXP, expTm.getTime());
+        privateClaims.put(JwtClaim.IAT, genTm.getTime());
 
         String privateKey = "1234567890";
         final String token = Jwts.builder()
@@ -56,11 +59,13 @@ public class TokenService {
             try{
                 accessTokenInfo.setSubject(jws.getBody().get(JwtClaim.SUB).toString());
                 accessTokenInfo.setUsername(jws.getBody().get(JwtClaim.USERNAME).toString());
+                accessTokenInfo.setScope(jws.getBody().get(JwtClaim.SCOPE).toString());
+                long expStr = Long.valueOf(jws.getBody().get(JwtClaim.EXP).toString());
+                accessTokenInfo.setExpirationDate(new Date(expStr));
 //                accessTokenInfo.setPrefferedName(jws.getBody().get(Constant.JWT_CLAIM_PREFFERD_USERNAME).toString());
-//                long expStr = Long.valueOf(jws.getBody().get(Constant.JWT_CLAIM_EXP).toString());
-//                accessTokenInfo.setExpirationDate(new Date(expStr));
+               
 //                accessTokenInfo.setTokenType(jws.getBody().get(Constant.JWT_CLAIM_TYPE).toString());
-//                accessTokenInfo.setScope(jws.getBody().get(Constant.JWT_CLAIM_SCOPE).toString());
+
 //                accessTokenInfo.setIssuer(jws.getBody().get(Constant.JWT_CLAIM_ISS).toString());
 //                accessTokenInfo.setAud(jws.getBody().get(Constant.JWT_CLAIM_AUD).toString());
 //                accessTokenInfo.setHostId(jws.getBody().get(Constant.JWT_CLAIM_HOST_ID).toString());
