@@ -12,6 +12,7 @@ import org.springframework.security.web.access.AccessDeniedHandler;
 import org.springframework.security.web.access.intercept.FilterSecurityInterceptor;
 import org.springframework.security.web.authentication.AuthenticationFailureHandler;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
+import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
 
 import com.cluser.security.AccessTokenAuthenticationProvider;
 import com.cluser.security.BearerAuthenticationEntryPoint;
@@ -26,16 +27,17 @@ import com.cluser.security.RestAccessDeniedHandler;
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-    	http
-    		.exceptionHandling()
-    			.accessDeniedHandler(restAccessDeniedHandler())
-    			.authenticationEntryPoint(restAuthenticationEntryPoint())
-    			.and()
-            .authorizeRequests()
-                .antMatchers("/**").permitAll()
-                .anyRequest().authenticated()
-                .and()
-            .addFilterBefore(new BearerAuthenticationsFilter(authenticationManager(), authenticationSuccessHandler(), authenticationFailureHandler()), FilterSecurityInterceptor.class);
+    	http.exceptionHandling()
+				.accessDeniedHandler(restAccessDeniedHandler())
+				.authenticationEntryPoint(restAuthenticationEntryPoint())
+			.and()
+				.csrf().disable()
+		    .authorizeRequests()
+            	.antMatchers("/**").permitAll()
+            	.anyRequest().authenticated()
+            .and()
+            	.addFilterBefore(new BearerAuthenticationsFilter(authenticationManager(), authenticationSuccessHandler(), authenticationFailureHandler()), FilterSecurityInterceptor.class);
+
     }
     
     @Bean
